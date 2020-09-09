@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ host }}"
+- hosts: "{{ HOST }}"
   gather_facts: false
   tasks:
   - name: Check for missing updates
