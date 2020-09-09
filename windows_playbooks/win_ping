@@ -1,5 +1,5 @@
 ---
-- hosts: dns
+- hosts: "{{ HOST }}"
   gather_facts: false
   tasks:
   - name: winping
