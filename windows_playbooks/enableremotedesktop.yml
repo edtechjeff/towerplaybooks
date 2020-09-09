@@ -1,5 +1,5 @@
 ---
-- hosts: winservers
+- hosts: servers
   gather_facts: false
   tasks:
   - name: Enable Remote Desktop
