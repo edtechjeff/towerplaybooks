@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ host }}"
+- hosts: winservers
   gather_facts: false
   tasks:
     - name: Get Uptime
