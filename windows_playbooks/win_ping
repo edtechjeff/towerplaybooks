@@ -1,0 +1,6 @@
+---
+- hosts: dns
+  gather_facts: false
+  tasks:
+  - name: winping
+    win_ping:
