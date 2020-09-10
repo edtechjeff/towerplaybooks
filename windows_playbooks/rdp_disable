@@ -2,10 +2,10 @@
 - hosts: "{{ HOST }}"
   gather_facts: false
   tasks:
-  - name: Enable Remote Desktop
+  - name: Disable Remote Desktop
     win_shell:
       Set-ItemProperty ‘HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\‘ -Name “fDenyTSConnections” -Value 1
 
-  - name: Disable Network Level Authentication
+  - name: Enable Network Level Authentication
     win_shell:
       Set-ItemProperty ‘HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\‘ -Name “UserAuthentication” -Value 1
