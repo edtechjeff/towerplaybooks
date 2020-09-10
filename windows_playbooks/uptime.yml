@@ -1,5 +1,5 @@
 ---
-- hosts:
+- hosts: ALL
   gather_facts: false
   tasks:
     - name: Get Uptime
