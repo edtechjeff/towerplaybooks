@@ -1,6 +1,6 @@
 ---
 - hosts: "{{ ansible_play_batch }}"
-  gather_facts: false
+  gather_facts: true
   tasks:
     - name: Get Uptime
       win_shell: (get-date) - (gcim Win32_OperatingSystem).LastBootUpTime
@@ -8,4 +8,4 @@
     - name: List Uptime
       debug:
         var: shell_result.stdout_lines
-      when: guestId == 'windows9Server64Guest'
+      when: ansible_distribution == 'Microsoft Windows Server 2019 Datacenter'
