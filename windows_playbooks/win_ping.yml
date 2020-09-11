@@ -4,4 +4,4 @@
   tasks:
   - name: winping
     win_ping:
-    when: ansible_distribution== "Microsoft Windows Server 2019 Datacenter"
+    when: ansible_distribution == "Microsoft Windows Server 2019 Datacenter"
