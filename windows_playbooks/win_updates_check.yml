@@ -8,11 +8,7 @@
         - Updates
         - SecurityUpdates
         - CriticalUpdates
-        - UpdateRollups
         - DefinitionUpdates
-        - WindowsDefender
-        - Drivers
-        - Tools
       state: searched
     register: kb
   - name: List missing updates
