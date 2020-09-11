@@ -5,7 +5,8 @@
     - name: Get Uptime
       win_shell: (get-date) - (gcim Win32_OperatingSystem).LastBootUpTime
       register: shell_result
+      when: ansible_distribution == 'Microsoft Windows Server 2019 Datacenter'
     - name: List Uptime
       debug:
         var: shell_result.stdout_lines
-      when: ansible_distribution == 'Microsoft Windows Server 2019 Datacenter'
+      
