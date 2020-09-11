@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ ansible_play_batch }}"
+- hosts: ALL
   gather_facts: true
   tasks:
   - name: winping
