@@ -1,6 +1,6 @@
 ---
 - hosts: hyperv.DOWNS.LAN
-  gather_facts: false
+  gather_facts: true
   tasks:
   - name: Enable Remote Desktop
     win_shell:
