@@ -4,4 +4,4 @@
   tasks:
   - name: winping
     win_ping:
-    when: ansible_os_family == "Windows"
+    when: ansible_facts['distribution']=="Microsoft Windows Server 2019 Datacenter"
