@@ -1,5 +1,4 @@
 ---
----
 - hosts: "{{ ansible_play_batch }}"
   gather_facts: true
   tasks:
@@ -7,4 +6,3 @@
     win_ping:
     when: 
       ansible_facts['ansible_distribution'] == "Microsoft Windows Server 2019 Datacenter"
- 
