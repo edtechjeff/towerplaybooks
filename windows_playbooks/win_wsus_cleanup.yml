@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ ansible_play_batch }}"
+- hosts: hyperv
   gather_facts: false
   tasks:
   - name: Enable Remote Desktop
