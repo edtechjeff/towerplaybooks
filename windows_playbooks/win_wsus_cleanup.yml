@@ -1,5 +1,5 @@
 ---
-- hosts: hyperv.DOWNS.LAN
+- hosts: "{{ ansible_play_batch }}"
   gather_facts: false
   tasks:
   - name: Enable Remote Desktop
