@@ -1,13 +1,6 @@
 ---
-- vars_prompt:
-    - name: "host"
-      prompt: "Which Host"
-      private: no
-  hosts: "{{ host }}"
+- hosts: "{{ ansible_play_batch }}"
   gather_facts: false
-  vars_files:
-    - /etc/ansible/vault/vault.yml
-    - /etc/ansible/group_vars/windows.yml
   tasks:
   - name: Install All Updates
     win_updates:
@@ -20,4 +13,8 @@
       - WindowsDefender
       - Drivers
       - Tools
-      reboot: yes
+      state: installed
+    register: update_result
+  -name: reboot host if required
+   win_reboot:
+   when: update_result.reboot_required
