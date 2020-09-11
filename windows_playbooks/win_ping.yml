@@ -1,5 +1,5 @@
 ---
-- hosts: ALL
+- hosts: "{{ ansible_distribution }}"
   gather_facts: true
   tasks:
   - name: winping
