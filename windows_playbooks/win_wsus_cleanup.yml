@@ -4,4 +4,4 @@
   tasks:
   - name: Enable Remote Desktop
     win_shell:
-      Get-WsusServer "hyperv" | Invoke-WsusServerCleanup -CleanupObsoleteComputers -CleanupObsoleteUpdates
+      Get-WsusServer "hyperv" -PortNumber 8530 | Invoke-WsusServerCleanup -CleanupObsoleteComputers -CleanupObsoleteUpdates
