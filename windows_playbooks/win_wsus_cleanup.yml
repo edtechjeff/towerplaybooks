@@ -1,5 +1,5 @@
 ---
-- hosts: hyperv
+- hosts: hyperv.DOWNS.LAN
   gather_facts: false
   tasks:
   - name: Enable Remote Desktop
