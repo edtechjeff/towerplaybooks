@@ -1,14 +1,7 @@
 ---
-- vars_prompt:
-    - name: "host"
-      prompt: "Which Host"
-      private: no
-  hosts: "{{ host }}"
+- hosts: "{{ ansible_play_batch }}"
   gather_facts: false
   connection: local
-  vars_files:
-    - /etc/ansible/vault/vault.yml
-    - /etc/ansible/group_vars/switches.yml
   tasks:
   - name: gather running config
     ios_command:
