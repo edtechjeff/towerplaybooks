@@ -13,4 +13,4 @@
   - name: backup
     copy:
       content: "{{ config.stdout[0] }}"
-      dest: "/etc/ansible/backups/show_run_{{ inventory_hostname }}.txt"
+      dest: "/etc/ansible/backups/config_{{ inventory_hostname }}.txt"
