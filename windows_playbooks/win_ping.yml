@@ -4,4 +4,4 @@
   tasks:
   - name: winping
     win_ping:
-    when: ansible_os_family == "Windows"
+    when: guestId == "windows2019srv_64Guest"
