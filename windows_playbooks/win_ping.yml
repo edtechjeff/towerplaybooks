@@ -4,4 +4,4 @@
   tasks:
   - name: winping
     win_ping:
-    when: guestId == "windows2019srv_64Guest"
+    when: config.guestId == "windows2019srv_64Guest"
