@@ -1,0 +1,5 @@
+---
+- host: all
+  gather_facts: yes
+  task:
+  ping:
