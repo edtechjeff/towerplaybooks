@@ -1,5 +1,6 @@
 ---
-- host: all
-  gather_facts: yes
+- hosts: "{{ ansible_play_batch }}"
+  gather_facts: true
   tasks:
-  ping:
+  - name: ping
+    ping:
