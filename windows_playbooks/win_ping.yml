@@ -4,4 +4,4 @@
   tasks:
   - name: winping
     win_ping:
-    when: OS == Windows_NT
+    when: ansible_os_family == "Windows"
