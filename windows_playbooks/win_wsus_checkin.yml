@@ -5,3 +5,6 @@
   - name: WSUS Checkin
     win_shell:
       $updateSession = new-object -com "Microsoft.Update.Session"; $updates=$updateSession.CreateupdateSearcher().Search($criteria).Updates
+  - name: Trigger Poll
+    win_shell:
+      wuauclt /reportnow
