@@ -1,0 +1,7 @@
+---
+- hosts: "{{ ansible_play_batch }}"
+  gather_facts: false
+  tasks:
+  - name: WSUS Checkin
+    win_shell:
+      $updateSession = new-object -com "Microsoft.Update.Session"; $updates=$updateSession.CreateupdateSearcher().Search($criteria).Updates
