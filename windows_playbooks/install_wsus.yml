@@ -1,0 +1,7 @@
+---
+- hosts: "{{ ansible_play_batch }}"
+  gather_facts: false
+  tasks:
+  - name: WSUS Checkin
+    win_shell:
+      Install-WindowsFeature -Name UpdateServices, UpdateServices-WidDB, UpdateServices-Services, UpdateServices-RSAT, UpdateServices-API, UpdateServices-UI
