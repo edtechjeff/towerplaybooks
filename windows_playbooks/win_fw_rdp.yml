@@ -12,4 +12,4 @@
       profiles: domain
       state: present
       enabled: yes
-      when: guest.guestFamily == "windowsGuest"
+    when: guest.guestFamily == "windowsGuest"
