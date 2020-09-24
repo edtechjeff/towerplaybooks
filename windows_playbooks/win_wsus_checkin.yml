@@ -8,3 +8,4 @@
   - name: Trigger Poll
     win_shell:
       wuauclt /reportnow
+---
