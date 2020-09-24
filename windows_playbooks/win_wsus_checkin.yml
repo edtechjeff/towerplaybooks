@@ -8,6 +8,3 @@
   - name: Trigger Poll
     win_shell:
       wuauclt /reportnow
-  - name: reboot
-    win_shell:
-      reboot now
