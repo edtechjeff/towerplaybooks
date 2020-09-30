@@ -10,6 +10,7 @@
         - DefinitionUpdates
       state: searched
     register: kb
+    when: guest.guestFamily == "windowsGuest"
   - name: List missing updates
     debug:
       var: kb.updates
