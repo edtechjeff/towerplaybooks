@@ -6,6 +6,6 @@
     win_shell: C:\scripts\serverscripts\remove_superseded.ps1
     register: shell_result
       
-  - name: List Uptime
+  - name: Show Results
     debug:
       var: shell_result.stdout_lines
