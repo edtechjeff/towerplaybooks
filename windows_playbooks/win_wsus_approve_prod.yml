@@ -1,21 +1,22 @@
 ---
-- hosts: "{{ ansible_play_batch }}"
+- name: WSUS update for needed patches
+  hosts: "{{ ansible_play_batch }}"
   gather_facts: false
   tasks:
   - name: check needed for critical
-    win_shell:  Get-WsusUpdate -Classification Critical -Approval AnyExceptDeclined
+    win_shell:  Get-WsusUpdate -Classification Critical -Approval Needed
     register: critical_count
     
   - name: check needed for security
-    win_shell:  Get-WsusUpdate -Classification Security -Approval AnyExceptDeclined
+    win_shell:  Get-WsusUpdate -Classification Security -Approval Needed
     register: security_count
   
   - name: Approve Critical Updates
     win_shell:
-       Get-WsusUpdate -Classification Critical -Approval AnyExceptDeclined | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
+       Get-WsusUpdate -Classification Critical -Approval AnyExceptDeclined -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
     when: update_critical == 'yes' or both_var == 'yes'
 
   - name: Approve Critical Updates
     win_shell:
-       Get-WsusUpdate -Classification Security -Approval AnyExceptDeclined | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
+       Get-WsusUpdate -Classification Security -Approval AnyExceptDeclined -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
     when: update_security == 'yes' or both_var == 'yes'
