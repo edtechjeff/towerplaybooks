@@ -4,4 +4,4 @@
   tasks:
   - name: Approve DEV Updates
     win_shell:
-       Get-WsusUpdate -Classification All -Approval Unapproved -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
+       Get-WsusUpdate -Classification "{{ update_class }}" -Approval Unapproved -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
