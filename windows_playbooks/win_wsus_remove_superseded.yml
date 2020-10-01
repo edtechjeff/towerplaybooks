@@ -4,3 +4,7 @@
   tasks:
   - name: Cleanup WSUS
     win_shell: C:\scripts\serverscripts\remove_superseded.ps1
+  register: declined_output
+
+  - debug:
+      msg: "{{ declined_output.Total Declined Updates }}"
