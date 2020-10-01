@@ -11,4 +11,4 @@
   - name: Trigger Poll
     win_shell:
       wuauclt /reportnow
-    when: guest.guestFamily == "windowsGuest"
+  when: guest.guestFamily == "windowsGuest"
