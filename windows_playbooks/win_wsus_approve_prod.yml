@@ -4,4 +4,4 @@
   tasks:
   - name: Approve PROD Updates
     win_shell:
-       Get-WsusUpdate -Classification Critical, Security -Approval AnyExceptDeclined | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
+       Get-WsusUpdate -Classification Security -Approval AnyExceptDeclined | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
