@@ -20,7 +20,7 @@
   - name: Report Results
     debug:
       msg: |
-        {% for true in wupdate_results.reboot_required %}
+        {% for true in update_results.reboot_required %}
         {{ update_results.reboot_required[true] }}
         {% endfor %}
     when: guest.guestFamily == "windowsGuest"
