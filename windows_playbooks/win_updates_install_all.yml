@@ -16,4 +16,8 @@
       state: installed
       reboot: no
     when: guest.guestFamily == "windowsGuest"
-    register: reboot_required
+    register: update_results
+  - name: Report Results
+    debug:
+      msg: {{ reboot_required }}
+    when: guest.guestFamily == "windowsGuest"
