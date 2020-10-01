@@ -16,7 +16,3 @@
       state: installed
     when: guest.guestFamily == "windowsGuest"
     register: reboot_required
-      
-  - name: Show Reboot
-    debug:
-      var: reboot_required.stdout_lines
