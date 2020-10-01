@@ -15,8 +15,8 @@
       - Tools
       state: installed
     when: guest.guestFamily == "windowsGuest"
-    register: update_result
+    register: reboot_required
       
   - name: Show Reboot
     debug:
-      var: update_result.stdout_lines
+      var: reboot_required.stdout_lines
