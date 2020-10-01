@@ -17,8 +17,3 @@
       reboot: no
     when: guest.guestFamily == "windowsGuest"
     register: update_results
-  - name: Report Results
-    debug:
-      msg: '{{ item }}'
-    loop: "{{ update_results.reboot_required|json_query('*.title[]') }}"
-    when: guest.guestFamily == "windowsGuest"
