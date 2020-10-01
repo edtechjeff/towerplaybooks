@@ -14,5 +14,6 @@
       - Drivers
       - Tools
       state: installed
+      reboot: no
     when: guest.guestFamily == "windowsGuest"
     register: reboot_required
