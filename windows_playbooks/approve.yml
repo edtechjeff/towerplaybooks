@@ -1,0 +1,7 @@
+---
+- hosts: "{{ ansible_play_batch }}"
+  gather_facts: false
+  tasks:
+  - name: Cleanup WSUS
+    win_shell:
+       Get-WsusUpdate -Classification All -Approval Unapproved -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
