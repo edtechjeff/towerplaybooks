@@ -4,3 +4,8 @@
   tasks:
   - name: Cleanup WSUS
     win_shell: C:\scripts\serverscripts\remove_superseded.ps1
+    register: shell_result
+      
+  - name: List Uptime
+    debug:
+      var: shell_result.stdout_lines
