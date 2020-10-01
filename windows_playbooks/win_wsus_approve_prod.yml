@@ -4,4 +4,4 @@
   tasks:
   - name: Approve PROD Updates
     win_shell:
-       Get-WsusUpdate -Classification All -Approval Approved -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
+       Get-WsusUpdate -Classification All -Approval Approved | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
