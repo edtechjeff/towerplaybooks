@@ -5,10 +5,11 @@
   - name: WSUS Checkin
     win_shell:
       $updateSession = new-object -com "Microsoft.Update.Session"; $updates=$updateSession.CreateupdateSearcher().Search($criteria).Updates
+      when: guest.guestFamily == "windowsGuest"
   - name: Wait 15 Sec
     win_shell:
       Start-Sleep 15
   - name: Trigger Poll
     win_shell:
       wuauclt /reportnow
-  when: guest.guestFamily == "windowsGuest"
+    when: guest.guestFamily == "windowsGuest"
