@@ -3,4 +3,4 @@
   gather_facts: false
   tasks:
   - name: Cleanup WSUS
-    win_shell: c:\updates\win_wsus_remove_superseded.ps1
+    win_shell: C:\scripts\serverscripts\remove_superseded.ps1
