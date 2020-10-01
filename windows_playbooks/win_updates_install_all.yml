@@ -19,5 +19,8 @@
     register: update_results
   - name: Report Results
     debug:
-      msg: {{ update_results.reboot_required }}
+      msg: |
+        {% for true in wupdate_results.reboot_required %}
+        {{ update_results.reboot_required[true] }}
+        {% endfor %}
     when: guest.guestFamily == "windowsGuest"
