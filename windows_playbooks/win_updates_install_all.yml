@@ -21,6 +21,6 @@
     debug:
       msg: |
         {% for false in update_results.reboot_required %}
-        {{ update_results.reboot_required[true] }}
+        {{ update_results.reboot_required[false] }}
         {% endfor %}
     when: guest.guestFamily == "windowsGuest"
