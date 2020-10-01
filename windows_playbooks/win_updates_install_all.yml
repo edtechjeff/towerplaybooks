@@ -14,6 +14,7 @@
       - Drivers
       - Tools
       state: installed
+    when: guest.guestFamily == "windowsGuest"
     register: update_result
   - name: reboot host if required
     win_reboot:
