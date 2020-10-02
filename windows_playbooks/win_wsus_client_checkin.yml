@@ -1,5 +1,6 @@
 ---
-- hosts: "{{ ansible_play_batch }}"
+- name: Forces a client checkin to WSUS server
+  hosts: "{{ ansible_play_batch }}"
   gather_facts: false
   tasks:
   - name: Checkin
