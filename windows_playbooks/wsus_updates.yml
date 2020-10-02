@@ -3,6 +3,9 @@
   hosts: "{{ ansible_play_batch }}"
   gather_facts: false
   tasks:
-  - name: Approve Critical Updates
+  - name: Check Critical Updates
     win_shell:
        Get-WsusUpdate -Classification critical -Approval AnyExceptDeclined -Status Needed
+  - name: Check Security Updates
+    win_shell:
+       Get-WsusUpdate -Classification security -Approval AnyExceptDeclined -Status Needed
