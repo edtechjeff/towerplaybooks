@@ -9,3 +9,7 @@
   - name: Check Security Updates
     win_shell:
        Get-WsusUpdate -Classification security -Approval AnyExceptDeclined -Status Needed
+    register: updates
+  - name: Output Updates Needed Approved
+    debug:
+      var: updates.stdout_lines
