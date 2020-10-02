@@ -1,14 +1,6 @@
 ---
-- vars_prompt:
-    - name: "host"
-      prompt: "Which Host"
-      private: no
-  hosts: "{{ host }}"
+- name: First for New Servers
+  hosts: "{{ ansible_play_batch }}"
   gather_facts: false
-  vars_files:
-    - /etc/ansible/vault/vault.yml
-    - /etc/ansible/group_vars/windows.yml
   roles:
      - disable-ieesc
-     - enable-rdp
-     - fw-rdp
