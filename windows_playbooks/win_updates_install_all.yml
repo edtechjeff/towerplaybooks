@@ -8,12 +8,12 @@
       - Updates
       - SecurityUpdates
       - CriticalUpdates
-      - UpdateRollups
       - DefinitionUpdates
       - WindowsDefender
-      - Drivers
-      - Tools
       state: installed
       reboot: no
     when: guest.guestFamily == "windowsGuest"
     register: update_results
+  - name: show what updates were installed
+    debug:
+      var: update_results.installed_update_count
