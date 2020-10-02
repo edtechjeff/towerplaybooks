@@ -2,15 +2,9 @@
 - hosts: "{{ ansible_play_batch }}"
   gather_facts: false
   tasks:
-  - name: WSUS Checkin
-    win_shell:
-      $updateSession = new-object -com "Microsoft.Update.Session"; $updates=$updateSession.CreateupdateSearcher().Search($criteria).Updates
-    when: guest.guestFamily == "windowsGuest"
-  - name: Wait 15 Sec
-    win_shell:
-      Start-Sleep 15
-    when: guest.guestFamily == "windowsGuest"
-  - name: Trigger Poll
-    win_shell:
-      wuauclt /reportnow
-    when: guest.guestFamily == "windowsGuest"
+  - name: Checkin
+    ansible.windows.win_updates:
+      category_names: 
+        - SecurityUpdates
+        - CriticalUpdates
+      state: searched
