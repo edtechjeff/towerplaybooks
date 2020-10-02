@@ -2,14 +2,6 @@
 - hosts: "{{ ansible_play_batch }}"
   gather_facts: false
   tasks:
-  - name: check needed for critical
-    win_shell:  Get-WsusUpdate -Classification Critical -Approval Needed
-    register: critical_count
-    
-  - name: check needed for security
-    win_shell:  Get-WsusUpdate -Classification Security -Approval Needed
-    register: security_count
-  
   - name: Approve Critical Updates
     win_shell:
        Get-WsusUpdate -Classification critical -Approval Unapproved -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
