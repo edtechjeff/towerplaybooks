@@ -3,11 +3,11 @@
   gather_facts: false
   tasks:
   - name: check needed for critical
-    win_shell:  Get-WsusUpdate -Classification Critical -Approval Needed
+    win_shell:  Get-WsusUpdate -Classification Critical -Status Needed
     register: critical_count
     
   - name: check needed for security
-    win_shell:  Get-WsusUpdate -Classification Security -Approval Needed
+    win_shell:  Get-WsusUpdate -Classification Security -Status Needed
     register: security_count
   
   - name: Approve Critical Updates
