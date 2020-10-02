@@ -13,6 +13,5 @@
     when: guest.guestFamily == "windowsGuest"
   - name: OutputCount
     debug:
-      # var: kb.found_update_count 
-      var: kb.updates
+      var: kb.found_update_count & kb.updates
     when: guest.guestFamily == "windowsGuest"
