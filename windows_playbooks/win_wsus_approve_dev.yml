@@ -3,19 +3,19 @@
   gather_facts: false
   tasks:
   - name: check needed for critical
-    win_shell:  Get-WsusUpdate -Classification Critical -Status Needed
+    win_shell:  Get-WsusUpdate -Classification Critical -Approval Needed
     register: critical_count
     
   - name: check needed for security
-    win_shell:  Get-WsusUpdate -Classification Security -Status Needed
+    win_shell:  Get-WsusUpdate -Classification Security -Approval Needed
     register: security_count
   
   - name: Approve Critical Updates
     win_shell:
-       Get-WsusUpdate -Classification Critical -Approval AnyExceptDeclined -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
+       Get-WsusUpdate -Classification critical -Approval Unapproved -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
     when: update_critical == 'yes' or both_var == 'yes'
 
-  - name: Approve Critical Updates
+  - name: Approve Security Updates
     win_shell:
-       Get-WsusUpdate -Classification Security -Approval AnyExceptDeclined -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
-    when: update_security == 'yes' or both_var == 'yes
+       Get-WsusUpdate -Classification security -Approval Unapproved -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
+    when: update_security == 'yes' or both_var == 'yes'
