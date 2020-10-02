@@ -10,5 +10,5 @@
       
     - name: List Uptime
       debug:
-        var: shell_result.stdout_lines
+        var: shell_result.stdout_lines.Days
       when: guest.guestFamily == "windowsGuest"
