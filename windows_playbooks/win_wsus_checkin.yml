@@ -8,3 +8,4 @@
         - SecurityUpdates
         - CriticalUpdates
       state: searched
+    when: guest.guestFamily == "windowsGuest"
