@@ -9,3 +9,7 @@
         - CriticalUpdates
       state: searched
     when: guest.guestFamily == "windowsGuest"
+  - name: Trigger Poll
+    win_shell:
+      wuauclt /reportnow
+    when: guest.guestFamily == "windowsGuest"
