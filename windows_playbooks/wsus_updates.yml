@@ -6,6 +6,7 @@
   - name: Check Critical Updates
     win_shell:
        Get-WsusUpdate -Classification critical -Approval Unapproved -Status Needed
+    register: udpates
   - name: Critical Updates Needed Approved
     debug:
       var: updates.stdout_lines
