@@ -11,3 +11,6 @@
       state: searched
     register: kb
     when: guest.guestFamily == "windowsGuest"
+  - name: OutputCount
+    debug:
+      kb.found_update_count
