@@ -5,10 +5,10 @@
   tasks:
   - name: Approve Critical Updates
     win_shell:
-       Get-WsusUpdate -Classification Critical -Approval Approved -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
+       Get-WsusUpdate -Classification Critical -Approval AnyExceptDeclined -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
     when: update_critical == 'yes' or both_var == 'yes'
 
   - name: Approve Critical Updates
     win_shell:
-       Get-WsusUpdate -Classification Security -Approval Approved -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
+       Get-WsusUpdate -Classification Security -Approval AnyExceptDeclined -Status Needed | Approve-WsusUpdate -Action Install -TargetGroupName "{{ approved_group }}"
     when: update_security == 'yes' or both_var == 'yes'
