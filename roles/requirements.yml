@@ -1,3 +1,2 @@
 ---
-src: git@github.com:edtechjeff/towerplaybooks.git
-scm: git
+src: https://github.com/towerplaybooks/master/roles/disable_ieesc
