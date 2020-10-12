@@ -40,3 +40,7 @@
       write-host Total Declined Updates: $count
 
       exit
+    register: find_output
+
+  - debug:
+      msg: "{{ find_output.stdout.split('\n') }}"    
