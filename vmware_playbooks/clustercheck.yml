@@ -5,4 +5,7 @@
   tasks:
   - name: Build a list of all the clusters
     vmware.vmware_rest.vcenter_cluster_info:
+      vcenter_hostname: vcsa.DOWNS.LAN
+      vcenter_password: LOvemywife%1
+      vcenter_username: administrator@vsphere.local
     register: all_the_clusters
