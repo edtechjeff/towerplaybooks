@@ -6,5 +6,5 @@
 - name: deploy report 
   template: 
     src: report.j2
-    dest: ~/report
+    dest: /var/tmp/report
   delegate_to: 127.0.0.1
