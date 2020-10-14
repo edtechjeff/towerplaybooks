@@ -1,3 +1,3 @@
 {% for item in groups%}
-{{ hostvars[win_updates_result.installed_update_count] }} : {{ hostvars[win_updates_result.reboot_required] }}
+{{ ansible_hostname }} {{ win_updates_result.installed_update_count }} {{ win_updates_result.reboot_required }}
 {% endfor %}
