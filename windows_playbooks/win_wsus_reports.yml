@@ -4,3 +4,4 @@
   gather_facts: false
   roles:
      - win_update_check
+     when: guest.guestFamily == "windowsGuest"
