@@ -4,5 +4,6 @@
   gather_facts: false
   tasks:
   - name: Build a list of all the clusters
-    vmware.vmware_rest.vcenter_cluster_info:
-    register: all_the_clusters
+    vmware.vmware_rest.vcenter_vm_info:
+    register: existing_vms
+    until: existing_vms is not failed
