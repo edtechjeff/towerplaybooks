@@ -1,0 +1,10 @@
+- name: search for windows updates
+  win_updates:
+    category_names: security
+    state: searched
+  register: win_updates_result
+- name: deploy report 
+  template: 
+    src: report.j2
+    dest: ~/report
+  delegate_to: 127.0.0.1
