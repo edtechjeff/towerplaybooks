@@ -3,6 +3,7 @@
     category_names: {{ patch_categories }}
     state: searched
   register: win_updates_result
+  when: guest.guestFamily == "windowsGuest"
 - name: deploy report 
   template: 
     src: report.j2
