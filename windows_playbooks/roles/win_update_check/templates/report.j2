@@ -1,4 +1,6 @@
-updates that need to be installed {{ win_updates_result.found_update_count }}
-updates found {{ win_updates_result.updates }}
-Does server require reboot {{ win_updates_result.reboot_required }}
-Number of updates installed {{ win_updates_result.installed_update_count }}
+{​​​​​​​% for i in groups[approved_group] %}​​​​​​​
+    {​​​​​​​{​​​​​​​ i }​​​​​​​}​​​​​​​:  
+    {​​​​​​​% for update in hostvars[i]['win_updates_result']['updates'] %}​​​​​​​}​​​​​​​
+        "{​​​​​​​{​​​​​​​ hostvars[i]['win_updates_result']['updates'][update]['kb'] }​​​​​​​}​​​​​​​" : "{​​​​​​​{​​​​​​​ hostvars[i]['win_updates_result']['updates'][update]['title'] }​​​​​​​}​​​​​​​" 
+    {​​​​​​​% endfor %}​​​​​​​}​​​​​​​
+{​​​​​​​% endfor %}​​​​​​​ 
