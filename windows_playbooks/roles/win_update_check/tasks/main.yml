@@ -1,6 +1,6 @@
 - name: search for windows updates
   win_updates:
-    category_names: "Security Updates"
+    category_names: {{ patch_categories }}
     state: searched
   register: win_updates_result
 - name: deploy report 
