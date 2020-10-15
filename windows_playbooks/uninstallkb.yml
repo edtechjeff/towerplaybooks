@@ -9,4 +9,4 @@
     ?{$_.ReleaseType -like "*Update*"} | '
     %{Get-WindowsPackage -Online -PackageName $_.PackageName} | '
     ?{$_.Description -like "{{ kb_number }}"} | '
-    Remove-WindowsPackage -Online -NoRestart
+    Remove-WindowsPackage -Online -NoRestart -LogPath "c:\windows\temp\uninstall.log"
