@@ -5,5 +5,5 @@
   tasks:
   - name: Check Critical Updates
     win_shell: 
-      wusa /uninstall /kb:"{{ kb_number }}" /quiet /norestart
+      wusa /uninstall /kb:"{{ kb_number }}" /quiet /norestart /log:c:\uninstall.log
     when: guest.guestFamily == "windowsGuest"
