@@ -1,6 +1,6 @@
 ---
 - name: to check WSUS server if patches are waiting to be approved
-  hosts: "{{ ansible_play_batch }}"
+  hosts: "{{ host }}"
   gather_facts: false
   tasks:
   - name: Check Critical Updates
