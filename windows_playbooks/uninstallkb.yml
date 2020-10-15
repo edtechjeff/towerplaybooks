@@ -5,4 +5,5 @@
   tasks:
   - name: Uninstall hotfix with KB
     win_shell: |
-    Get-WindowsPackage -Online | ?{$_.ReleaseType -like "*Update*"} | %{Get-WindowsPackage -Online -PackageName $_.PackageName} | ?{$_.Description -like "*KB4577668*"} | Remove-WindowsPackage -Online -NoRestart
+    $sb = Get-WindowsPackage -Online | ?{$_.ReleaseType -like "*Update*"} | %{Get-WindowsPackage -Online -PackageName $_.PackageName} | ?{$_.Description -like "*KB4577668*"} | Remove-WindowsPackage -Online -NoRestart
+    invoke-command -scriptblock { $sb }
