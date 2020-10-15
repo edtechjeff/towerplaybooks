@@ -23,4 +23,4 @@
     register: updates
   - name: All Updates Needed Approved
     debug:
-      msg: Title.updates.stdout_lines
+      msg: updates.stdout_lines
