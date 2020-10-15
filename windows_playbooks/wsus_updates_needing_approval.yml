@@ -18,7 +18,7 @@
     debug:
       var: updates.stdout_lines
   - name: Checking for all Updates Needed
-   win_shell:
+    win_shell:
        Get-WsusUpdate -Classification All -Approval AnyExceptDeclined -Status Needed
     register: updates
   - name: All Updates Needed Approved
