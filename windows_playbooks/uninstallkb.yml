@@ -5,7 +5,7 @@
   tasks:
   - name: Uninstall hotfix with KB
     win_hotfix:
-      hotfix_kb: KB"{{ kb_number }}"
+      hotfix_kb: {{ kb_number }}"
       state: absent
     register: hotfix_uninstall
 
