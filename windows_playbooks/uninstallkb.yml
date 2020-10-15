@@ -4,10 +4,4 @@
   gather_facts: false
   tasks:
   - name: Uninstall hotfix with KB
-    win_hotfix:
-      hotfix_identifier: "{{ kb_number }}"
-      state: absent
-    register: hotfix_uninstall
-
-  - win_reboot:
-    when: hotfix_uninstall.reboot_required
+    win_shell: usa.exe /quiet /uninstall /kb:4577667 /norestart
