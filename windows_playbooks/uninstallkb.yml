@@ -5,6 +5,6 @@
   tasks:
   - name: Uninstall hotfix with KB
     win_hotfix:
-    hotfix_identifier: Package_for_KB4494174~31bf3856ad364e35~amd64~~10.0.3.1
-    state: absent
-  register: hotfix_uninstall
+      hotfix_identifier: Package_for_KB4494174~31bf3856ad364e35~amd64~~10.0.3.1
+      state: absent
+    register: hotfix_uninstall
