@@ -5,4 +5,4 @@
   tasks:
   - name: Uninstall hotfix with KB
     win_shell: |
-    Get-WindowsPackage -Online | ?{$_.ReleaseType -like "*Update*"} | %{Get-WindowsPackage -Online -PackageName $_.PackageName} | ?{$_.Description -like "{{ kb_number }}"} | Remove-WindowsPackage -Online -NoRestart -LogPath "c:\windows\temp\uninstall.log"
+    Get-WindowsPackage -Online | ?{$_.ReleaseType -like "*Update*"} | %{Get-WindowsPackage -Online -PackageName $_.PackageName} | ?{$_.Description -like *"{{ kb_number }}*"} | Remove-WindowsPackage -Online -NoRestart -LogPath "c:\windows\temp\uninstall.log"
