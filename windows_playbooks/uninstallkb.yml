@@ -3,7 +3,11 @@
   hosts: "{{ ansible_host }}"
   gather_facts: false
   tasks:
-  - name: Check Critical Updates
-    win_shell: 
-      wusa /uninstall /kb:"{{ kb_number }}" /quiet /norestart /log:c:\uninstall.log
-    when: guest.guestFamily == "windowsGuest"
+  - name: Uninstall hotfix with KB
+    win_hotfix:
+      hotfix_kb: "{{ kb_number }}"
+      state: absent
+    register: hotfix_uninstall
+
+  - win_reboot:
+    when: hotfix_uninstall.reboot_required
