@@ -4,4 +4,4 @@
   gather_facts: false
   tasks:
   - name: Uninstall hotfix with KB
-    win_shell: wusa /uninstall /kb:4577667 /quiet /norestart /log:c:\uninstall.log
+    win_shell: wusa /uninstall /kb:4577668 /quiet /norestart /log:c:\uninstall.log
