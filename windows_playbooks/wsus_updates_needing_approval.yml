@@ -23,4 +23,4 @@
     register: updates
   - name: All Updates Needed Approved
     debug:
-      msg: "{{ updates.stdout_lines|Title }}"
+      msg: Title.updates.stdout_lines
