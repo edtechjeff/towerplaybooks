@@ -9,8 +9,8 @@
         - SecurityUpdates
         - CriticalUpdates
       state: searched
-    when: guest.guestFamily == "windowsGuest"
+    when: ansible_os_family == "Windows"
   - name: Trigger Poll
     win_shell:
       wuauclt /reportnow
-    when: guest.guestFamily == "windowsGuest"
+    when: ansible_os_family == "Windows"
