@@ -1,21 +1,7 @@
 ---
-- name: Install all updates to servers
+- name: Checkin and Install all Updates to Servers
   hosts: "{{ ansible_play_batch }}"
   gather_facts: false
-  tasks:
-  - name: Install All Updates
-    win_updates:
-      category_names:
-      - Updates
-      - SecurityUpdates
-      - CriticalUpdates
-      - DefinitionUpdates
-      - WindowsDefender
-      state: installed
-      reboot: no
-    # when: ansible_os_family == "Windows"
-    register: update_results
-  - name: show what updates were installed
-    debug:
-      var: update_results.installed_update_count
-    # when: ansible_os_family == "Windows"
+  roles:
+    - client_checkin
+    - install_all
