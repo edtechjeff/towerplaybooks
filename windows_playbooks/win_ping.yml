@@ -4,4 +4,4 @@
   tasks:
   - name: winping
     win_ping:
-    when: guest.guestFamily == "windowsGuest"
+    # when: guest.guestFamily == "windowsGuest"
