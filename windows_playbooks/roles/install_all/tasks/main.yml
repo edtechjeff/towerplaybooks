@@ -6,8 +6,8 @@
     - CriticalUpdates
     - DefinitionUpdates
     - WindowsDefender
-    state: installed
-    reboot: no
+  state: installed
+  reboot: no
   register: update_results
 - name: show what updates were installed
   debug:
