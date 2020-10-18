@@ -1,13 +1,13 @@
 - name: Install All Updates
   win_updates:
-  category_names:
-    - Updates
-    - SecurityUpdates
-    - CriticalUpdates
-    - DefinitionUpdates
-    - WindowsDefender
-  state: installed
-  reboot: no
+    category_name:
+      - Updates
+      - SecurityUpdates
+      - CriticalUpdates
+      - DefinitionUpdates
+      - WindowsDefender
+    state: installed
+    reboot: no
   register: update_results
 - name: show what updates were installed
   debug:
