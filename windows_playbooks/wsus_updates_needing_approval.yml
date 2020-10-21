@@ -6,21 +6,21 @@
   - name: Check Critical Updates
     win_shell:
        Get-WsusUpdate -Classification critical -Approval AnyExceptDeclined -Status Needed
-    register: updates
+    register: critical_updates
   - name: Critical Updates Needed Approved
     debug:
-      var: updates.stdout_lines
+      var: critical_updates.stdout_lines
   - name: Check Security Updates
     win_shell:
        Get-WsusUpdate -Classification security -Approval AnyExceptDeclined -Status Needed
-    register: updates
+    register: security_updates
   - name: Security Updates Needed Approved
     debug:
-      var: updates.stdout_lines
+      var: security_updates.stdout_lines
   - name: Checking for all Updates Needed
     win_shell:
        Get-WsusUpdate -Classification All -Approval AnyExceptDeclined -Status Needed
-    register: updates
+    register: all_updates
   - name: All Updates Needed Approved
     debug:
-      msg: updates.stdout_lines
+      msg: all_updates.stdout_lines
